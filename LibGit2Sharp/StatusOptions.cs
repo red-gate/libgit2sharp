@@ -71,5 +71,11 @@ namespace LibGit2Sharp
         /// Limit the scope of paths to consider to the provided pathspecs
         /// </summary>
         public string[] PathSpec { get; set; }
+
+        /// <summary>
+        /// When set to <c>true</c>, the PathSpec paths will be considered
+        /// as explicit paths, and NOT as pathspecs containing globs.
+        /// </summary>
+        public bool DisablePathSpecMatch { get; set; }
     }
 }
