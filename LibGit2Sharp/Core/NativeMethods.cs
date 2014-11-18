@@ -85,7 +85,7 @@ namespace LibGit2Sharp.Core
         {
             get
             {
-                if (Environment.Is64BitProcess)
+                if (IntPtr.Size == 8)
                 {
                     return "amd64";
                 }
