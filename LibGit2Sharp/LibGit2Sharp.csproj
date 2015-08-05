@@ -395,4 +395,5 @@
   -->
   <Import Project="..\SharedMsBuild\RedGate.Build.targets" Condition="'$(BuildingInsideVisualStudio)' == ''" />
   <Import Project="$(RedGate_BuildTargetsPath)" Condition="'$(BuildingInsideVisualStudio)' == '' And '$(RedGate_BuildTargetsPath)' != ''" />
+  <Import Project="..\SharedMsBuild\RedGate.Build.targets" Condition="'$(BuildingInsideVisualStudio)' == ''" />
 </Project>
