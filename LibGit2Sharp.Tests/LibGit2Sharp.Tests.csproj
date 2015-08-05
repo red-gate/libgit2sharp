@@ -170,3 +170,5 @@
 </Project>
   <Import Project="$(RedGate_BuildTargetsPath)" Condition="'$(BuildingInsideVisualStudio)' == '' And '$(RedGate_BuildTargetsPath)' != ''" />
 </Project>
+  <Import Project="$(RedGate_BuildTargetsPath)" Condition="'$(BuildingInsideVisualStudio)' == '' And '$(RedGate_BuildTargetsPath)' != ''" />
+</Project>
