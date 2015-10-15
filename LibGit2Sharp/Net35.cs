@@ -1,7 +1,16 @@
 ﻿using System;
+using System.Linq;
 
 namespace LibGit2Sharp
 {
+    public static class Stringish
+    {
+        public static bool IsNullOrWhiteSpace(string item)
+        {
+            return string.IsNullOrEmpty(item) || item.All(char.IsWhiteSpace);
+        }
+    }
+
     public class Tuple<T, TS>
     {
         public T Item1 { get; private set; }
