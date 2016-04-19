@@ -15,6 +15,9 @@
     <references>
       <reference file="LibGit2Sharp-RedGate.dll" />
     </references>
+    <dependencies>
+      <dependency id="TaskParallelLibrary" version="1.0.2856.0" />
+    </dependencies>
   </metadata>
   <files>
     <file src="nuget.package\RedGate.ThirdParty.LibGit2Sharp.Fork.targets" target="build\net35" />
@@ -28,7 +31,7 @@
     <file src="LibGit2Sharp\bin\Release\LibGit2Sharp-RedGate.dll" target="lib\net35" />
     <file src="LibGit2Sharp\bin\Release\LibGit2Sharp-RedGate.pdb" target="lib\net35" />
     <file src="LibGit2Sharp\bin\Release\LibGit2Sharp.xml" target="lib\net35" />
-    <file src="packages\LibGit2Sharp.NativeBinaries.1.0.106\libgit2\libgit2.license.txt" target="App_Readme" />
+    <file src="packages\LibGit2Sharp.NativeBinaries.1.0.129\libgit2\libgit2.license.txt" target="App_Readme" />
     <file src="Install\WiX2\Source Files\Export\RedGate.ThirdParty.LibGit2Sharp.Fork.wxs" target="wix2" />
   </files>
 </package>
