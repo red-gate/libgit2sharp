@@ -3,9 +3,11 @@ version: '{build}'
 branches:
   only:
   - master
-  - vNext
+  - /^maint.*/
 
 skip_tags: true
+
+image: Visual Studio 2015
 
 clone_folder: C:\projects\libgit2sharp
 
@@ -16,7 +18,7 @@ environment:
     secure: nuzUT+HecXGIi3KaPd/1hgFEZJan/j6+oNbPV75JKjk=
   coverity_email:
     secure: eGVilNg1Yuq+Xj+SW8r3WCtjnzhoDV0sNJkma4NRq7A=
-  version : 0.22.0
+  version : 0.24.0
   matrix:
   - xunit_runner: xunit.console.x86.exe
     Arch: 32
@@ -112,7 +114,7 @@ test_script:
     {
       .\packages\OpenCover\tools\OpenCover.Console.exe `
         -register:user `
-        "-target:""$Env:APPVEYOR_BUILD_FOLDER\packages\xunit.runner.console.2.0.0\tools\$Env:xunit_runner""" `
+        "-target:""$Env:APPVEYOR_BUILD_FOLDER\packages\xunit.runner.console.2.2.0\tools\$Env:xunit_runner""" `
         "-targetargs:""$Env:APPVEYOR_BUILD_FOLDER\LibGit2Sharp.Tests\bin\Release\LibGit2Sharp.Tests.dll"" -noshadow" `
         "-filter:+[LibGit2Sharp]* -[LibGit2Sharp.Tests]*" `
         -hideskipped:All `
@@ -120,7 +122,7 @@ test_script:
     }
     ElseIf ($Env:SHOULD_RUN_COVERITY_ANALYSIS -eq $False)
     {
-      & "$Env:APPVEYOR_BUILD_FOLDER\packages\xunit.runner.console.2.0.0\tools\$Env:xunit_runner" `
+      & "$Env:APPVEYOR_BUILD_FOLDER\packages\xunit.runner.console.2.2.0\tools\$Env:xunit_runner" `
           "$Env:APPVEYOR_BUILD_FOLDER\LibGit2Sharp.Tests\bin\Release\LibGit2Sharp.Tests.dll" -noshadow
     }
 
