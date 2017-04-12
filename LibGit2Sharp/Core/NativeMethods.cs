@@ -71,27 +71,15 @@ namespace LibGit2Sharp.Core
             {
                 string nativeLibraryPath = GlobalSettings.GetAndLockNativeLibraryPath();
 
-                var pathStringToAdd = GetPathStringToAdd(nativeLibraryPath);
+                string path = Path.Combine(nativeLibraryPath, Platform.ProcessorArchitecture);
 
                 const string pathEnvVariable = "PATH";
                 Environment.SetEnvironmentVariable(pathEnvVariable,
-                    String.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", pathStringToAdd, Path.PathSeparator, Environment.GetEnvironmentVariable(pathEnvVariable)));
+                    String.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", path, Path.PathSeparator, Environment.GetEnvironmentVariable(pathEnvVariable)));
             }
 
             // See LibraryLifetimeObject description.
             lifetimeObject = new LibraryLifetimeObject();
-        }
-
-        private static string GetPathStringToAdd(string nativeLibraryPath)
-        {
-            const string nativeBinariesFolderSlash = "NativeBinaries\\";
-            var subFolders = Platform.ProcessorArchitecture == Architecture.x86
-                ? new[] { "x86" }
-                : new[] { "amd64", "x64" };
-            var pathsToAdd = subFolders.Select(f => Path.Combine(nativeLibraryPath, f))
-                .Concat(subFolders.Select(f => Path.Combine(nativeLibraryPath, nativeBinariesFolderSlash + f)));
-            var pathStringToAdd = string.Join(Path.PathSeparator.ToString(), pathsToAdd.ToArray());
-            return pathStringToAdd;
         }
 
         [DllImport(libgit2)]
