@@ -8,21 +8,16 @@ namespace LibGit2Sharp.Core
         Unix,
         MacOSX
     }
-    internal enum Architecture
-    {
-        x86,
-        amd64
-    }
 
 
     internal static class Platform
     {
-        public static Architecture ProcessorArchitecture
+        public static string ProcessorArchitecture
         {
-            get { return Is64BitProcess ? Architecture.amd64 : Architecture.x86; }
+            get { return Is64BitProcess ? "x64" : "x86"; }
         }
-
-        private static bool Is64BitProcess
+		
+		private static bool Is64BitProcess
         {
             get { return IntPtr.Size == 8; }
         }
