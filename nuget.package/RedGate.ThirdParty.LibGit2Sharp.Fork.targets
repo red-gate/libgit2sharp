@@ -4,12 +4,12 @@
     Add the Native Binaries assemblies of the nuget package as linked items in the project file.
     + get them to be copied to the build output folder.
     -->
-    <None Include="$(MSBuildThisFileDirectory)x64\*">
-      <Link>x64\%(Filename)%(Extension)</Link>
+    <None Include="$(MSBuildThisFileDirectory)lib\win32\x64\*">
+      <Link>lib\win32\x64\%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)x86\*">
-      <Link>x86\%(Filename)%(Extension)</Link>
+    <None Include="$(MSBuildThisFileDirectory)lib\win32\x86\*">
+      <Link>lib\win32\x86\%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
 
